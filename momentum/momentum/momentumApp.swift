@@ -27,18 +27,21 @@ struct momentumApp: App {
         WindowGroup {
             TabView {
                 OnboardingView(viewModel: StatisticOnboardingViewModel(), intents: InitialOnboardingIntents())
+                    .padding(.vertical)
                     .tabItem {
                         Image(systemName: "chart.pie")
                         Text("Statistics")
                     }
                 
-                OnboardingView(viewModel: HabitOnboardingViewModel(), intents: InitialOnboardingIntents())
+                DashboardView()
+                    .padding(.vertical)
                     .tabItem {
                         Image(systemName: "circle.hexagongrid")
                         Text("Habits")
                     }
                 
                 ProfileView(viewModel: AccountViewModel(), intents: AccountIntents())
+                    .padding(.vertical)
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Profile")

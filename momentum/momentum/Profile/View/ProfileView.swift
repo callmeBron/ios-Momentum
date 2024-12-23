@@ -22,7 +22,7 @@ struct ProfileView: View {
                 }
                 .padding(.vertical)
             }
-        case .onboarding(let onboardingName):
+        case .onboarding(_):
             // resolve by binding name
             OnboardingView(viewModel: AccountOnboardingViewModel(),
                            intents: AccountOnboardingIntents())
