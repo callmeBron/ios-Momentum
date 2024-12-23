@@ -32,13 +32,13 @@ struct momentumApp: App {
                         Text("Statistics")
                     }
                 
-                OnboardingView(viewModel: StatisticOnboardingViewModel(), intents: InitialOnboardingIntents())
+                OnboardingView(viewModel: HabitOnboardingViewModel(), intents: InitialOnboardingIntents())
                     .tabItem {
                         Image(systemName: "circle.hexagongrid")
                         Text("Habits")
                     }
                 
-                OnboardingView(viewModel: StatisticOnboardingViewModel(), intents: InitialOnboardingIntents())
+                ProfileView(viewModel: AccountViewModel(), intents: AccountIntents())
                     .tabItem {
                         Image(systemName: "person.crop.circle")
                         Text("Profile")
