@@ -30,3 +30,4 @@ Fictional DI repo:
 [https://github.com/Fictional-Hero/FictionalInjection-iOS]
 
 ## App Screenshots
+![image](https://github.com/user-attachments/assets/c13f84c6-eab0-49ba-aa94-f52df70156e5)
