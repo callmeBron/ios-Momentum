@@ -1,15 +1,14 @@
-//
-//  momentumApp.swift
-//  momentum
-//
-//  Created by Bronwyn dos Santos on 2024/12/23.
-//
-
 import SwiftUI
+import FictionalInjection
 import SwiftData
 
 @main
 struct momentumApp: App {
+    var bindDependencies: () = {
+        let accountDependencies = AccountDependencies()
+        accountDependencies.bindAccountDependencies()
+    }()
+    
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
             Item.self,
@@ -32,15 +31,16 @@ struct momentumApp: App {
                         Image(systemName: "chart.pie")
                         Text("Statistics")
                     }
-                
-                DashboardView()
+            
+                OnboardingView(viewModel: HabitOnboardingViewModel(),
+                               intents: HabitOnboardingIntents())
                     .padding(.vertical)
                     .tabItem {
                         Image(systemName: "circle.hexagongrid")
                         Text("Habits")
                     }
-                
-                ProfileView(viewModel: AccountViewModel(), intents: AccountIntents())
+               
+                profileView()
                     .padding(.vertical)
                     .tabItem {
                         Image(systemName: "person.crop.circle")
@@ -51,4 +51,9 @@ struct momentumApp: App {
         }
         .modelContainer(sharedModelContainer)
     }
+}
+
+private func profileView() -> some View {
+    @Inject(BindingName.accountBindingName) var profileView: AnyView!
+    return profileView
 }

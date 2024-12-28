@@ -1,5 +1,5 @@
 import Foundation
 
 protocol AccountViewProtocol {
-    var viewState: ViewState { get }
+    var viewState: ViewState<AccountModel> { get }
 }

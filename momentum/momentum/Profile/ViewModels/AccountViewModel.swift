@@ -1,11 +1,12 @@
 import Foundation
 import SwiftUI
+import FictionalInjection
 
 class AccountViewModel: ObservableObject, AccountViewProtocol {
-    @Published var viewState: ViewState = .noContent
+    @Published var viewState: ViewState<AccountModel> = .noContent
     
     private var shouldShowOnboarding: Bool  {
-        return false
+        return true
     }
     
     init() {
@@ -13,7 +14,7 @@ class AccountViewModel: ObservableObject, AccountViewProtocol {
     }
     
     private func setOnboardingState() {
-        viewState = .onboarding("AccountOnboardingBindingName") // will use binding name to id the correct onboarding
+        viewState = .onboarding(BindingName.accountBindingName)
     }
     
     private func setDataModel() {

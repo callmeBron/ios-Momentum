@@ -1,4 +1,5 @@
 import SwiftUI
+import FictionalInjection
 
 struct OnboardingView: View {
     let viewModel: OnboardingProtocol
@@ -14,24 +15,26 @@ struct OnboardingView: View {
     }
     
     var body: some View {
-        GeometryReader { geometryProxy in
-            VStack(spacing: 20) {
-                Spacer()
-                imageView(with: geometryProxy,
-                          imageName: onboardingDataModel.imageName)
-                .padding(.bottom)
+        NavigationView {
+            GeometryReader { geometryProxy in
+                VStack(spacing: 20) {
+                    Spacer()
+                    imageView(with: geometryProxy,
+                              imageName: onboardingDataModel.imageName)
+                    .padding(.bottom)
+                    
+                    titleAndDescriptionView(title: onboardingDataModel.title,
+                                            description: onboardingDataModel.description)
+                    Spacer()
+                    
+                }
+                .padding(.horizontal)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
                 
-                titleAndDescriptionView(title: onboardingDataModel.title,
-                                        description: onboardingDataModel.description)
-                Spacer()
-
-            }
-            .padding(.horizontal)
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-           
-            .safeAreaInset(edge: .bottom) {
-                buttonView(buttonText: onboardingDataModel.buttonText,
-                           action: intents.onboardingButtonAction)
+                .safeAreaInset(edge: .bottom) {
+                    buttonView(buttonText: onboardingDataModel.buttonText,
+                               view: onboardingDataModel.view)
+                }
             }
         }
     }
@@ -58,25 +61,23 @@ private func titleAndDescriptionView(title: String, description: String) -> some
         .font(.body)
 }
 
-
-
 @ViewBuilder
-private func buttonView(buttonText: String, action: @escaping () -> Void) -> some View {
+private func buttonView(buttonText: String, view: AnyView) -> some View {
     HStack(spacing: 30) {
-        Button {
-            action()
-        } label: {
+        HStack {
             HStack {
-                Text("Lets go")
+                NavigationLink(buttonText) {
+                    view
+                }
                 Image(systemName: "chevron.right")
             }
             .foregroundStyle(.white)
+            .padding()
+            .background(Color.darkCharcoal)
+            .clipShape(Capsule())
+            
+            Spacer()
         }
-        .padding()
-        .background(Color.darkCharcoal)
-        .clipShape(Capsule())
-        
-        Spacer()
     }
     .padding(.horizontal)
 }

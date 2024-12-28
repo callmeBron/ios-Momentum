@@ -5,4 +5,5 @@ struct OnboardingModel {
     let title: String
     let description: String
     let buttonText: String
+    let nextView: AnyView
 }

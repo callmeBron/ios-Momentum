@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		767B4A8C2D1DCA0E005A44D1 /* FictionalInjection in Frameworks */ = {isa = PBXBuildFile; productRef = 767B4A8B2D1DCA0E005A44D1 /* FictionalInjection */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		7651739D2D19C9C300A75D3C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				767B4A8C2D1DCA0E005A44D1 /* FictionalInjection in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = momentum;
 			packageProductDependencies = (
+				767B4A8B2D1DCA0E005A44D1 /* FictionalInjection */,
 			);
 			productName = momentum;
 			productReference = 765173892D19C9C100A75D3C /* momentum.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 765173802D19C9C100A75D3C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				767B4A8A2D1DCA0E005A44D1 /* XCLocalSwiftPackageReference "../../../../../Users/bronwyndossantos/Downloads/FictionalInjection-iOS-main" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7651738A2D19C9C100A75D3C /* Products */;
 			projectDirPath = "";
@@ -591,6 +600,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		767B4A8A2D1DCA0E005A44D1 /* XCLocalSwiftPackageReference "../../../../../Users/bronwyndossantos/Downloads/FictionalInjection-iOS-main" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../../../../Users/bronwyndossantos/Downloads/FictionalInjection-iOS-main";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		767B4A8B2D1DCA0E005A44D1 /* FictionalInjection */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = FictionalInjection;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 765173812D19C9C100A75D3C /* Project object */;
 }

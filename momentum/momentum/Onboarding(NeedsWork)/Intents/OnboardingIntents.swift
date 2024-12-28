@@ -1,4 +1,6 @@
 import Foundation
+import FictionalInjection
+import SwiftUI
 
 class InitialOnboardingIntents: OnboardingIntentProtocol {
     func onboardingButtonAction() {
@@ -8,7 +10,10 @@ class InitialOnboardingIntents: OnboardingIntentProtocol {
 
 class AccountOnboardingIntents: OnboardingIntentProtocol {
     func onboardingButtonAction() {
-        // action to come
+        @Inject(BindingName.accountBindingName) var profileView: AnyView!
+        NavigationLink("") {
+            profileView
+        }
     }
 }
 
