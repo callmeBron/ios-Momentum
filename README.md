@@ -1,4 +1,7 @@
-![image](https://github.com/user-attachments/assets/2633a0f3-1ef6-4272-aafd-6c522309002c)
+
+![image](https://github.com/user-attachments/assets/fe722c35-b78f-479a-9d8f-ad9814b1bfa9)
+
+
 
 # Momentum: Progress in Motion
 ### About the project
