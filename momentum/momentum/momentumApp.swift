@@ -11,7 +11,7 @@ struct momentumApp: App {
     
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            PersistedProfileModel.self
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
         
@@ -25,29 +25,35 @@ struct momentumApp: App {
     var body: some Scene {
         WindowGroup {
             TabView {
-                OnboardingView(viewModel: StatisticOnboardingViewModel(), intents: InitialOnboardingIntents())
+                NavigationStack {
+                    Text("stats page")
+                        .padding(.vertical)
+                }
+                .tabItem {
+                    Image(systemName: "chart.pie")
+                    Text("Statistics")
+                }
+                
+                NavigationStack {
+                 Text("habit page")
                     .padding(.vertical)
-                    .tabItem {
-                        Image(systemName: "chart.pie")
-                        Text("Statistics")
-                    }
-            
-                OnboardingView(viewModel: HabitOnboardingViewModel(),
-                               intents: HabitOnboardingIntents())
-                    .padding(.vertical)
-                    .tabItem {
-                        Image(systemName: "circle.hexagongrid")
-                        Text("Habits")
-                    }
-               
-                profileView()
-                    .padding(.vertical)
-                    .tabItem {
-                        Image(systemName: "person.crop.circle")
-                        Text("Profile")
-                    }
+                }
+                .tabItem {
+                    Image(systemName: "circle.hexagongrid")
+                    Text("Habits")
+                }
+                
+                NavigationStack {
+                    profileView()
+                        .padding(.vertical)
+                }
+                .tabItem {
+                    Image(systemName: "person.crop.circle")
+                    Text("Profile")
+                }
+                
             }
-            .accentColor(.orange)
+            .accentColor(.darkCharcoal)
         }
         .modelContainer(sharedModelContainer)
     }

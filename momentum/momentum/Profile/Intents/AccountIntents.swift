@@ -1,11 +1,13 @@
 import Foundation
+import SwiftUI
 
 protocol AccountIntentProtocol {
-    func editButtonIntent()
+  func setOnboardingSeen()
 }
 
-struct AccountIntents: AccountIntentProtocol {
-    func editButtonIntent() {
-        // edit code
+class AccountIntents: AccountIntentProtocol {
+    let userDefaults = UserDefaults.standard
+    func setOnboardingSeen() {
+        userDefaults.set(true, forKey: "AccountOnboardingSeen")
     }
 }
